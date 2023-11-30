@@ -36,24 +36,24 @@
         }
 
         .quiz-container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 120px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 120px;
-}
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 120px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 120px;
+        }
 
-.quiz-text {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 20px;
-}
+        .quiz-text {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
 
         .question {
-            font-size: 20px; /* Aumentei o tamanho do texto da pergunta */
-            margin-bottom: 15px; /* Aumentei a margem inferior da pergunta */
+            font-size: 20px;
+            margin-bottom: 15px;
         }
 
         .options {
@@ -62,10 +62,10 @@
         }
 
         .option {
-            margin: 10px 0; /* Aumentei a margem das opções */
+            margin: 10px 0;
             cursor: pointer;
             background-color: #ddd;
-            padding: 15px; /* Aumentei o padding das opções */
+            padding: 15px;
             border-radius: 4px;
         }
 
@@ -81,8 +81,8 @@
         #next-btn,
         #restart-btn {
             display: none;
-            margin-top: 15px; /* Aumentei a margem dos botões */
-            padding: 15px; /* Aumentei o padding dos botões */
+            margin-top: 15px;
+            padding: 15px;
             background-color: #4caf50;
             color: white;
             border: none;
@@ -97,26 +97,27 @@
 
         #score {
             margin-top: 20px;
-            font-size: 18px; /* Aumentei o tamanho do texto da pontuação */
+            font-size: 18px;
             font-weight: bold;
         }
 
         /* Footer */
-.footer {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between; /* Para espaçar as divs horizontalmente */
-  align-items: baseline; /* Para alinhar as divs verticalmente */
-  background: #ddd;
-}
+        .footer {
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          background: #ddd;
+        }
 
-.integrantes {
-  text-align: left;
-}
+        .integrantes,
+        .integrantes2 {
+          text-align: left;
+        }
 
-.integrantes2 {
-  text-align: right;
-}
+        .integrantes2 {
+          text-align: right;
+        }
     </style>
 </head>
 <body>
@@ -130,74 +131,73 @@
 </div>
 
 <div class="quiz-container">
-    <p class="quiz-text">Try this quiz to see if you realy learn something </p>
+    <p class="quiz-text">Try this quiz to see if you really learned something</p>
     <div id="question" class="question"></div>
     <div id="options" class="options"></div>
     <div id="result"></div>
-    <button id="next-btn" onclick="nextQuestion()">Próxima Pergunta</button>
-    <button id="restart-btn" onclick="restartQuiz()">Reiniciar Quiz</button>
+    <button id="next-btn" onclick="nextQuestion()">Next Question</button>
+    <button id="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
     <div id="score"></div>
 </div>
-
 
 <script>
     const questions = [
     {
-        question: "Qual empresa desenvolve o sistema operacional Android?",
+        question: "Which company develops the Android operating system?",
         options: ["Apple", "Microsoft", "Google", "Samsung"],
         correctAnswer: "Google",
         answered: false
     },
     {
-        question: "Em que ano foi lançada a primeira versão do Android?",
+        question: "In what year was the first version of Android released?",
         options: ["2005", "2007", "2008", "2010"],
         correctAnswer: "2008",
         answered: false
     },
     {
-        question: "Qual é o nome da última versão estável do Android lançada até agora?",
+        question: "What is the name of the latest stable version of Android released so far?",
         options: ["Pie", "Oreo", "Nougat", "Marshmallow"],
         correctAnswer: "Oreo",
         answered: false
     },
     {
-        question: "O que é o Android Studio?",
-        options: ["Um smartphone Android", "Um sistema operacional", "Uma IDE para desenvolvimento Android", "Um aplicativo de mensagens"],
-        correctAnswer: "Uma IDE para desenvolvimento Android",
+        question: "What is Android Studio?",
+        options: ["A smartphone Android", "An operating system", "An IDE for Android development", "A messaging app"],
+        correctAnswer: "An IDE for Android development",
         answered: false
     },
     {
-        question: "Qual componente do Android é responsável pelo armazenamento temporário de dados?",
+        question: "Which component of Android is responsible for temporary data storage?",
         options: ["SD Card", "Internal Storage", "RAM", "ROM"],
         correctAnswer: "RAM",
         answered: false
     },
     {
-        question: "O que é o ADB (Android Debug Bridge)?",
-        options: ["Um tipo de bateria", "Um protocolo de comunicação", "Uma ferramenta de desenvolvimento", "Um aplicativo de mensagens"],
-        correctAnswer: "Uma ferramenta de desenvolvimento",
+        question: "What is ADB (Android Debug Bridge)?",
+        options: ["A type of battery", "A communication protocol", "A development tool", "A messaging app"],
+        correctAnswer: "A development tool",
         answered: false
     },
     {
-        question: "Qual é a linguagem de programação principal usada para desenvolver aplicativos Android?",
+        question: "What is the main programming language used to develop Android apps?",
         options: ["Java", "C++", "Python", "Swift"],
         correctAnswer: "Java",
         answered: false
     },
     {
-        question: "O que significa APK no contexto do Android?",
+        question: "What does APK mean in the context of Android?",
         options: ["Android Package Kit", "Application Package", "Android Processing Kernel", "Application Program Keyboard"],
         correctAnswer: "Android Package Kit",
         answered: false
     },
     {
-        question: "Qual é a loja oficial de aplicativos para dispositivos Android?",
+        question: "What is the official app store for Android devices?",
         options: ["Amazon Appstore", "Google Play Store", "Samsung Galaxy Store", "App Store"],
         correctAnswer: "Google Play Store",
         answered: false
     },
     {
-        question: "O que é o Android NDK?",
+        question: "What is the Android NDK?",
         options: ["Nuclear Development Kit", "Newest Developer Kit", "Native Development Kit", "Network Development Kit"],
         correctAnswer: "Native Development Kit",
         answered: false
@@ -206,7 +206,7 @@
 
     let currentQuestionIndex = 0;
     let userScore = 0;
-    let questionAnswered = false; // Variável para controlar se a pergunta foi respondida
+    let questionAnswered = false;
 
     function showQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
@@ -229,10 +229,10 @@
         });
 
         resultElement.textContent = "";
-        nextButton.style.display = "none"; // Oculta o botão "Próxima Pergunta"
-        restartButton.style.display = "none"; // Oculta o botão "Reiniciar Quiz"
-        scoreElement.textContent = ""; // Limpa o elemento de pontuação
-        questionAnswered = false; // Reseta a variável de controle
+        nextButton.style.display = "none";
+        restartButton.style.display = "none";
+        scoreElement.textContent = "";
+        questionAnswered = false;
     }
 
     function checkAnswer(selectedIndex) {
@@ -248,23 +248,22 @@
 
         if (!currentQuestion.answered && !questionAnswered) {
             if (selectedIndex === currentQuestion.correctAnswerIndex) {
-                resultElement.textContent = "Resposta correta!";
+                resultElement.textContent = "Correct answer!";
                 userScore++;
             } else {
-                resultElement.textContent = "Resposta incorreta. A resposta correta é: " + currentQuestion.correctAnswer;
+                resultElement.textContent = "Incorrect answer. The correct answer is: " + currentQuestion.correctAnswer;
             }
 
             currentQuestion.answered = true;
             questionAnswered = true;
-            nextButton.style.display = "block"; // Exibe o botão "Próxima Pergunta"
+            nextButton.style.display = "block";
 
-            // Exibe o botão "Reiniciar Quiz" e a pontuação após a última pergunta
             if (currentQuestionIndex === questions.length - 1) {
                 restartButton.style.display = "block";
-                scoreElement.textContent = `Você acertou ${userScore} de ${questions.length} perguntas!`;
+                scoreElement.textContent = `You got ${userScore} out of ${questions.length} questions right!`;
             }
         } else if (questionAnswered) {
-            resultElement.textContent = "Você já respondeu a esta pergunta.";
+            resultElement.textContent = "You already answered this question.";
         }
     }
 
@@ -276,29 +275,25 @@
     }
 
     function restartQuiz() {
-        // Reinicia o status de perguntas
         questions.forEach((question) => {
             question.answered = false;
             question.correctAnswerIndex = undefined;
         });
 
-        // Reinicia as variáveis
         currentQuestionIndex = 0;
         userScore = 0;
         questionAnswered = false;
 
-        // Mostra a primeira pergunta
         showQuestion();
     }
 
-    // Inicializa a primeira pergunta
     showQuestion();
 </script>
 
 <!-- Footer -->
 <div class="footer">
   <div class="integrantes">
-      <h3>GROUP MEMBERS A3 INGLÊS</h3>
+      <h3>GROUP MEMBERS A3 ENGLISH</h3>
       <h4>Daniel Rodrigues de França RA: 520115414<br>
         Luiz Sergio Lorenzo Junior RA: 520114346<br>
         Riquelme Campelo da Silva RA: 52018533<br>
@@ -307,7 +302,7 @@
       </h4>
     </div>
     <div class="integrantes2">
-      <h3>GROUP MEMBERS A3 INGLÊS</h3>
+      <h3>GROUP MEMBERS A3 ENGLISH</h3>
       <h4>Lucas dos Santos Vieira RA: 52115724<br>
         Amabili Schayana Toledo Martins RA: 1292225149<br>
         Thales Nunes Ferreira RA: 52014078<br>
